@@ -19,6 +19,27 @@ var jsonData = [
       url: "940232456",
       mod_type: "premise",
       description: ""
+    },
+    {
+      name: "cmdplus",
+      file: "cmdplus.zip",
+      url: "939787547",
+      mod_type: "SBAPI",
+      description: "SBAPIベースでコマンドを強化します。"
+    },
+    {
+      name: "SBMOD GUIサンプル",
+      file: "guiサンプル.zip",
+      url: "945187053",
+      mod_type: "SBMOD",
+      description: "SBMODのサンプルmod"
+    },
+    {
+      name: "SBMOD非公式アドオン",
+      file: "SBMOD非公式アドオン.zip",
+      url: "949284994",
+      mod_type: "SBMOD",
+      description: "SBMODのサンプルmod"
     }
     // 他のmodのデータを追加
   ];
