@@ -8,14 +8,14 @@ var jsonData = [
     },
     {
       name: "sorting Mod",
-      file: "sorting_mod_v0.02.sprite3",
+      file: "sorting_mod_v0.02.zip",
       url: "945217558",
       mod_type: "SBAPI",
       description: "建築リストに儲け順等の並べ替えを追加します。"
     },
     {
       name: "SBMOD",
-      file: "SB_MOD_1.0.sprite3",
+      file: "SB_MOD_1.0.zip",
       url: "940232456",
       mod_type: "premise",
       description: ""
