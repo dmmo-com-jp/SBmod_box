@@ -1,0 +1,121 @@
+.modlist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 20pt
+  }
+  
+  .mod-item {
+  width: 300px;
+  padding: 0px 20px 20px 20px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mod-item h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #000; 
+  }
+  
+  .mod-item p {
+  margin-bottom: 10px;
+  }
+  
+  .mod-item a {
+  color: #007bff;
+  text-decoration: none;
+  }
+  
+  .mod-item img {
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 10px;
+  }
+  
+  .premise-mod {
+  position: relative;
+  }
+  
+  .premise-mod::before {
+  content: "前提";
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  padding: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  }
+
+  .SBAPI-mod {
+  position: relative;
+  }
+    
+  .SBAPI-mod::before {
+  content: "SBAPI";
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  padding: 5px;
+  background-color: #8a2be2;
+  color: #fff;
+  border-radius: 5px;
+  }
+  .SBMOD-mod {
+  position: relative;
+  }
+  
+  .SBMOD-mod::before {
+  content: "SBMOD";
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  padding: 5px;
+  background-color: #8a2be2;
+  color: #fff;
+  border-radius: 5px;
+  }
+  /*scratch風ボタン*/
+  button {
+  padding: 8px 16px;
+  background-color: #4d97ff !important; 
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+  /*scratch風ボタンなチェックボックス*/
+  label {
+    margin-right: 5px; 
+}
+label input {
+    display: none; 
+    }
+label span {
+    color: #333; 
+    font-size: 14px; 
+    border: 1px solid #333; 
+    border-radius: 5px;
+    padding: 5px 20px; 
+}
+/* チェックされた場合 */
+label input:checked + span {
+    color: #FFF; 
+    background: #4d97ff; 
+    border: 1px solid #4d97ff; 
+}
+/* チェックされていない場合 */
+label input:not(:checked) + span {
+  color: #FFF; 
+  background: #93bbf3; 
+  border: 1px solid #93bbf3; 
+}
+
+#search-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 20px; 
+  outline: none;
+}
