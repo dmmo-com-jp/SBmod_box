@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SBmod_box</title>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="favicon.png">
+  <meta name="description" content="ビル経営ゲームのmodをまとめています。ダウンロードしてスプライトをアップロードすれば簡単に導入出来ます！">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div>
+        <label for="search-input">検索:</label>
+        <input type="text" id="search-input" oninput="searchMods()" placeholder="mod名を入力">
+      </div>
+    <div>
+        <p>絞り込み:
+        <label>
+        <input type="checkbox" value="all" onchange="filterMods(this.checked)" checked><span>すべて</span>
+        </label>
+        <label>
+          <input type="checkbox" value="premise" onchange="filterMods(this.checked)"><span>前提mod</span>
+        </label>
+        <label>
+          <input type="checkbox" value="SBAPI" onchange="filterMods(this.checked)"><span>SBAPI式</span>
+        </label>
+        <label>
+          <input type="checkbox" value="SBMOD" onchange="filterMods(this.checked)"><span>SBMOD式</span>
+        </label>
+    </p>
+      </div>
+  <div class="modlist"></div>
+  <!--タグはここから--><table border="0" cellspacing="0" cellpadding="0"><tr><td align="center"><a href="http://www.rays-counter.com/"><img src="http://www.rays-counter.com/d1278_f6_022/65e42d1e70591/" alt="アクセスカウンター" border="0"></a></td></tr><tr><td align="center" style="font-size:xx-small"><img src="http://www.rays-counter.com/images/counter_01.gif" border="0"><img src="http://www.rays-counter.com/images/counter_02.gif" border="0"><img src="http://www.rays-counter.com/images/counter_03.gif" border="0"><img src="http://www.rays-counter.com/images/counter_04.gif" border="0"><img src="http://www.rays-counter.com/images/counter_05.gif" border="0"></td></tr></table><!--ここまで-->
+  <script src="script.js"></script>
+</body>
+</html>
