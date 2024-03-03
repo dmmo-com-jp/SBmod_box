@@ -28,18 +28,18 @@ var jsonData = [
       description: "SBAPIベースでコマンドを強化します。"
     },
     {
-      name: "SBMOD GUIサンプル",
+      name: "GUIサンプル",
       file: "guiサンプル.zip",
       url: "945187053",
       mod_type: "SBMOD",
       description: "SBMODのサンプルmod"
     },
     {
-      name: "SBMOD非公式アドオン",
+      name: "非公式アドオン",
       file: "SBMOD非公式アドオン.zip",
       url: "949284994",
       mod_type: "SBMOD",
-      description: "SBMODのサンプルmod"
+      description: "SBMODのguiサンプルを改造したmod"
     }
     // 他のmodのデータを追加
   ];
