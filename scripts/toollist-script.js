@@ -3,48 +3,47 @@ var jsonData = [
         name: "SBAPI",
         file: "SBAPI.zip",
         url: "933515639",
-        tag: ["premise","ver7"],
+        tag: ["premise"],
         description: "ビル経の拡張性を高め、様々なmodを作りやすくするツール"
     },
     {
         name: "sorting Mod",
         file: "sorting_mod_v0.02.zip",
         url: "945217558",
-        tag: ["SBAPI","ver7"],
+        tag: ["SBAPI"],
         description: "建築リストに儲け順等の並べ替えを追加します。"
     },
     {
         name: "SBMOD",
         file: "SB_MOD_1.0.zip",
         url: "940232456",
-        tag: ["premise","ver7"],
+        tag: ["premise"],
         description: ""
     },
     {
         name: "cmdplus",
         file: "cmdplus.zip",
         url: "939787547",
-        tag: ["SBAPI","ver7"],
+        tag: ["SBAPI"],
         description: "SBAPIベースでコマンドを強化します。"
     },
     {
         name: "GUIサンプル",
         file: "guiサンプル.zip",
         url: "945187053",
-        tag: ["SBMOD","premise","ver7"],
+        tag: ["SBMOD","premise"],
         description: "SBMODのサンプルmod"
     },
     {
         name: "非公式アドオン",
         file: "SBMOD非公式アドオン.zip",
         url: "949284994",
-        tag: ["SBMOD","ver7"],
+        tag: ["SBMOD"],
         description: "SBMODのguiサンプルを改造したmod"
     }
     // 他のmodのデータを追加
 ];
   
-let versions_list = ["all","ver5","ver6","ver7"]
 function processJSON(data) {
     var modListDiv = document.querySelector(".modlist");
     modListDiv.innerHTML = ""; // 現在のmodリストをクリア
@@ -60,29 +59,20 @@ function processJSON(data) {
         let modtag = ``
         mod.tag.forEach(tagName => {
             switch (tagName) {
-                case 'premise':
-                    modtag += `<p class="modtag blue">前提</p>`;
+                case 'savecode':
+                    modtag += `<p class="modtag blue">セーブコード変換機</p>`;
                     break;
-                case 'SBAPI':
-                    modtag += `<p class="modtag purple">SBAPI</p>`;
+                case 'view':
+                    modtag += `<p class="modtag purple">viewツール</p>`;
                     break;
-                case 'SBMOD':
-                    modtag += `<p class="modtag purple">SBMod</p>`;
-                    break;
-                case 'ver5':
-                    modtag += `<p class="modtag lite-green">ver5</p>`;
-                    break;
-                case 'ver6':
-                    modtag += `<p class="modtag lite-green">ver6</p>`;
-                    break;
-                case 'ver7':
-                    modtag += `<p class="modtag lite-green">ver7</p>`;
+                case 'v7':
+                    modtag += `<p class="modtag purple">v7</p>`;
                     break;
                 default:
                     break;
             }
         });
-       // console.log(modtag)
+        console.log(modtag)
         //modの説明
         if (!mod.description) mod.description = `This is the ${mod.name}.`
 
@@ -155,16 +145,13 @@ const isIncludes = (arr, target) => arr.some(el => target.includes(el));
 function containsOnly(arr, targetElement) {
     return arr.some(element => element !== targetElement);
 }
-let select_version = document.querySelector(`select[name='version']`)
 var beforeall = true
 function filterMods(modType) {
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     var checkedTypes = Array.from(checkboxes)
         .filter((checkbox) => checkbox.checked)
         .map((checkbox) => checkbox.value);
-        console.log(checkedTypes)
-        const sel_version = select_version.value
-        console.log(checkedTypes)
+//document.querySelector(`input[type='checkbox'][value='all']`).checked = false
         if(containsOnly(checkedTypes,"all") && beforeall){ 
             document.querySelector(`input[type='checkbox'][value='all']`).checked = false
             checkedTypes = checkedTypes.filter(element => element !== "all")
@@ -174,15 +161,15 @@ function filterMods(modType) {
         })
         document.querySelector(`input[type='checkbox'][value='all']`).checked = true
         checkedTypes = ["all"]
+        console.log(checkedTypes)
         }
     if (checkedTypes.includes("all")) {
-        processJSON(jsonData.filter((mod)=>mod.tag.includes(sel_version)||sel_version==="all"));
+        processJSON(jsonData);
         beforeall = true
     } else {
         beforeall = false
         var filteredMods = jsonData.filter(function (mod) {
         console.log(`tag:${mod.tag} ct:${checkedTypes}`)
-        if(!mod.tag.includes(sel_version)) return false
         let truefalse = false
         mod.tag.forEach((elm)=>{
             if(isIncludes(checkedTypes,elm)) truefalse=true
@@ -205,7 +192,3 @@ function searchMods() {
 }
 
 processJSON(jsonData);
-
-select_version.onchange = event => { 
-            filterMods()
-        }
