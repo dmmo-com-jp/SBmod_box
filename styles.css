@@ -27,7 +27,7 @@ h3#title {
 }
   
 .mod-item {
-    width: 300px;
+    width: 250px;
     padding: 0px 20px 20px 20px;
     background-color: #f1f1f1;
     border-radius: 5px;
@@ -171,8 +171,4 @@ nav a {
 nav a:hover {
     background-color: #ddd;
     color: black;
-}
-nav img {
-	top: 400px;
-	position: sticky;
 }

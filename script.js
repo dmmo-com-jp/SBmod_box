@@ -88,15 +88,17 @@ function processJSON(data) {
 
         //アイテム作成
         var modDiv = document.createElement("div");
-        modDiv.className = "mod-item";
+        modDiv.className = "mod-item flex flex-col justify-between";
         modDiv.innerHTML=(`
-            <div class="info">
-                <h2>${mod.name}</h2>
-                <div class="tags">${modtag}</div>
+            <div>
+                <div class="info">
+                    <h2>${mod.name}</h2>
+                    <div class="tags">${modtag}</div>
+                </div>
+                <p class="description">${mod.description}</p>
+                <p><a href="mods/${mod.file}" download="true">ダウンロード</a></p>
+                <p><a href="https://scratch.mit.edu/projects/${mod.url}">プロジェクトのリンク</a></p>
             </div>
-            <p class="description">${mod.description}</p>
-            <p><a href="mods/${mod.file}" download="true">ダウンロード</a></p>
-            <p><a href="https://scratch.mit.edu/projects/${mod.url}">プロジェクトのリンク</a></p>
             <img src="https://uploads.scratch.mit.edu/projects/thumbnails/${mod.url}.png">
         `)
 
