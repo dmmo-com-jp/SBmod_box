@@ -165,18 +165,22 @@ function filterMods(modType) {
         .map((checkbox) => checkbox.value);
         const sel_version = select_version.value
         //if(!modType){
-            console.log(beforeall)
         if(containsOnly(checkedTypes,"all") && beforeall!=false){ 
             document.querySelector(`input[type='checkbox'][value='all']`).checked = false
             checkedTypes = checkedTypes.filter(element => element !== "all")
-            console.log(checkedTypes)
         }else {
+            if(checkedTypes.length != 0){
+            if(checkedTypes.includes("all")){
         checkedTypes.forEach(cb =>{
             document.querySelector(`input[type='checkbox'][value=${cb}]`).checked = false
         })
         document.querySelector(`input[type='checkbox'][value='all']`).checked = true
         checkedTypes = ["all"]
-        }//}
+        }
+        }else{
+        document.querySelector(`input[type='checkbox'][value='all']`).checked = true
+        checkedTypes = ["all"]
+        }}
     if (checkedTypes.includes("all")) {
         beforeall = true
         processJSON(jsonData.filter((mod)=>mod.tag.includes(sel_version)||sel_version==="all"));
