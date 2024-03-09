@@ -44,61 +44,20 @@ var jsonData = [
     // 他のmodのデータを追加
 ];
   
-let versions_list = ["all","ver5","ver6","ver7"]
-function processJSON(data) {
-    var modListDiv = document.querySelector(".modlist");
-    modListDiv.innerHTML = ""; // 現在のmodリストをクリア
-
-    // modを名前の辞書順でソート
-    data.sort(function(a, b) {
-        return a.name.localeCompare(b.name);
-    });
-
-    for (var i = 0; i < data.length; i++) {
-        const mod = data[i];
-        //tagを作る
-        let modtag = ``
-        mod.tag.forEach(tagName => {
-            switch (tagName) {
-                case 'premise':
-                    modtag += `<p class="modtag blue">前提</p>`;
-                    break;
-                case 'SBAPI':
-                    modtag += `<p class="modtag purple">SBAPI</p>`;
-                    break;
-                case 'SBMOD':
-                    modtag += `<p class="modtag purple">SBMod</p>`;
-                    break;
-                case 'ver5':
-                    modtag += `<p class="modtag lite-green">ver5</p>`;
-                    break;
-                case 'ver6':
-                    modtag += `<p class="modtag lite-green">ver6</p>`;
-                    break;
-                case 'ver7':
-                    modtag += `<p class="modtag lite-green">ver7</p>`;
-                    break;
-                default:
-                    break;
-            }
-        });
-       // console.log(modtag)
         //modの説明
         if (!mod.description) mod.description = `This is the ${mod.name}.`
 
         //アイテム作成
         var modDiv = document.createElement("div");
-        modDiv.className = "mod-item flex flex-col justify-between";
+        modDiv.className = "mod-item";
         modDiv.innerHTML=(`
-            <div>
-                <div class="info">
-                    <h2>${mod.name}</h2>
-                    <div class="tags">${modtag}</div>
-                </div>
-                <p class="description">${mod.description}</p>
-                <p><a href="mods/${mod.file}" download="true">ダウンロード</a></p>
-                <p><a href="https://scratch.mit.edu/projects/${mod.url}">プロジェクトのリンク</a></p>
+            <div class="info">
+                <h2>${mod.name}</h2>
+                <div class="tags">${modtag}</div>
             </div>
+            <p class="description">${mod.description}</p>
+            <p><a href="mods/${mod.file}" download="true">ダウンロード</a></p>
+            <p><a href="https://scratch.mit.edu/projects/${mod.url}">プロジェクトのリンク</a></p>
             <img src="https://uploads.scratch.mit.edu/projects/thumbnails/${mod.url}.png">
         `)
 
