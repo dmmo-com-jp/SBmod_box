@@ -1,48 +1,3 @@
-var jsonData = [
-    {
-        name: "SBAPI",
-        file: "SBAPI.zip",
-        url: "933515639",
-        tag: ["premise","ver7"],
-        description: "ビル経の拡張性を高め、様々なmodを作りやすくするツール"
-    },
-    {
-        name: "sorting Mod",
-        file: "sorting_mod_v0.02.zip",
-        url: "945217558",
-        tag: ["SBAPI","ver7"],
-        description: "建築リストに儲け順等の並べ替えを追加します。"
-    },
-    {
-        name: "SBMOD",
-        file: "SB_MOD_1.0.zip",
-        url: "940232456",
-        tag: ["premise","ver7"],
-        description: ""
-    },
-    {
-        name: "cmdplus",
-        file: "cmdplus.zip",
-        url: "939787547",
-        tag: ["SBAPI","ver7"],
-        description: "SBAPIベースでコマンドを強化します。"
-    },
-    {
-        name: "GUIサンプル",
-        file: "guiサンプル.zip",
-        url: "945187053",
-        tag: ["SBMOD","premise","ver7"],
-        description: "SBMODのサンプルmod"
-    },
-    {
-        name: "非公式アドオン",
-        file: "SBMOD非公式アドオン.zip",
-        url: "949284994",
-        tag: ["SBMOD","ver7"],
-        description: "SBMODのguiサンプルを改造したmod"
-    }
-    // 他のmodのデータを追加
-];
 let versions_list = ["all","ver5","ver6","ver7"]
 function processJSON(data) {
     var modListDiv = document.querySelector(".modlist");
@@ -58,28 +13,8 @@ function processJSON(data) {
         //tagを作る
         let modtag = ``
         mod.tag.forEach(tagName => {
-            switch (tagName) {
-                case 'premise':
-                    modtag += `<p class="modtag blue">前提</p>`;
-                    break;
-                case 'SBAPI':
-                    modtag += `<p class="modtag purple">SBAPI</p>`;
-                    break;
-                case 'SBMOD':
-                    modtag += `<p class="modtag purple">SBMod</p>`;
-                    break;
-                case 'ver5':
-                    modtag += `<p class="modtag lite-green">ver5</p>`;
-                    break;
-                case 'ver6':
-                    modtag += `<p class="modtag lite-green">ver6</p>`;
-                    break;
-                case 'ver7':
-                    modtag += `<p class="modtag lite-green">ver7</p>`;
-                    break;
-                default:
-                    break;
-            }
+            modtag = custom_tag(tagName,modtag)
+            if(tagName.includes("ver")) modtag += `<p class="modtag lite-green">${tagName}</p>`
         });
        // console.log(modtag)
         //modの説明
@@ -88,6 +23,7 @@ function processJSON(data) {
         //アイテム作成
         var modDiv = document.createElement("div");
         modDiv.className = "mod-item flex flex-col justify-between";
+        if(mod.file){
         modDiv.innerHTML=(`
             <div>
                 <div class="info">
@@ -95,12 +31,25 @@ function processJSON(data) {
                     <div class="tags">${modtag}</div>
                 </div>
                 <p class="description">${mod.description}</p>
-                <p><a href="mods/${mod.file}" download="true">ダウンロード</a></p>
+                <p><a href="mods/${mod.file}" download="${mod.file}">ダウンロード</a></p>
                 <p><a href="https://scratch.mit.edu/projects/${mod.url}">プロジェクトのリンク</a></p>
             </div>
             <img src="https://uploads.scratch.mit.edu/projects/thumbnails/${mod.url}.png">
         `)
-
+        }else{
+            modDiv.innerHTML=(`
+            <div>
+                <div class="info">
+                    <h2>${mod.name}</h2>
+                    <div class="tags">${modtag}</div>
+                </div>
+                <p class="description">${mod.description}</p>
+                <p><a href="https://turbowarp.org/${mod.url}/fullscreen">TurboWarp</a></p>
+                <p><a href="https://scratch.mit.edu/projects/${mod.url}">プロジェクトのリンク</a></p>
+            </div>
+            <img src="https://uploads.scratch.mit.edu/projects/thumbnails/${mod.url}.png">
+        `)
+        }
         modListDiv.appendChild(modDiv);
         /*
         if (mod.tag === "premise") {
@@ -206,7 +155,7 @@ function searchMods() {
     var searchTerm = searchInput.value.toLowerCase();
 
     var filteredMods = jsonData.filter(function (mod) {
-        return mod.name.toLowerCase().includes(searchTerm);
+        return mod.name.toLowerCase().includes(searchTerm)||mod.description.toLowerCase().includes(searchTerm)
     });
 
     processJSON(filteredMods);

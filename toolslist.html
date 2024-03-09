@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja-JP">
     <head>
-        <title>SBmod_box - ツール一覧</title>
+        <title>SBmod_box - mod一覧</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel=”canonical” href=”https://dmmo-com-jp.github.io/SBmod_box/index.html”>
@@ -25,14 +25,20 @@
                         <input type="checkbox" value="all" onchange="filterMods(this.checked)" checked><span>すべて</span>
                     </label>
                     <label>
-                        <input type="checkbox" value="premise" onchange="filterMods(this.checked)"><span>前提mod</span>
+                        <input type="checkbox" value="premise" id="check-notall" onchange="filterMods(this.checked)"><span>前提mod</span>
                     </label>
                     <label>
-                        <input type="checkbox" value="SBAPI" onchange="filterMods(this.checked)"><span>SBAPI式</span>
+                        <input type="checkbox" value="SBAPI" id="check-notall" onchange="filterMods(this.checked)"><span>SBAPI式</span>
                     </label>
                     <label>
-                        <input type="checkbox" value="SBMOD" onchange="filterMods(this.checked)"><span>SBMOD式</span>
+                        <input type="checkbox" value="SBMOD" id="check-notall" onchange="filterMods(this.checked)"><span>SBMOD式</span>
                     </label>
+                    <select name="version">
+                        <option value="all">指定しない</option>
+                        <option value="ver5">ver5</option>
+                        <option value="ver6">ver6</option>
+                        <option value="ver7">ver7</option>
+                    </select>
                 </p>
             </div>
             <div class="modlist"></div>
@@ -44,7 +50,9 @@
                 async>
             </script>
         </main>
+
     </body>
+    <script src="scripts/toollist.js"></script>
     <script src="script.js"></script>
     <script src="scripts/navbar.js"></script>
 </html>
