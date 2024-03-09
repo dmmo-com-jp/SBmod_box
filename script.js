@@ -157,32 +157,34 @@ function containsOnly(arr, targetElement) {
 }
 let select_version = document.querySelector(`select[name='version']`)
 var beforeall = true
+document.querySelector(`input[type='checkbox'][value='all']`).checked = true
 function filterMods(modType) {
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     var checkedTypes = Array.from(checkboxes)
         .filter((checkbox) => checkbox.checked)
         .map((checkbox) => checkbox.value);
-        console.log(checkedTypes)
         const sel_version = select_version.value
-        console.log(checkedTypes)
-        if(containsOnly(checkedTypes,"all") && beforeall){ 
+        //if(!modType){
+            console.log(beforeall)
+        if(containsOnly(checkedTypes,"all") && beforeall!=false){ 
             document.querySelector(`input[type='checkbox'][value='all']`).checked = false
             checkedTypes = checkedTypes.filter(element => element !== "all")
+            console.log(checkedTypes)
         }else {
         checkedTypes.forEach(cb =>{
             document.querySelector(`input[type='checkbox'][value=${cb}]`).checked = false
         })
         document.querySelector(`input[type='checkbox'][value='all']`).checked = true
         checkedTypes = ["all"]
-        }
+        }//}
     if (checkedTypes.includes("all")) {
-        processJSON(jsonData.filter((mod)=>mod.tag.includes(sel_version)||sel_version==="all"));
         beforeall = true
+        processJSON(jsonData.filter((mod)=>mod.tag.includes(sel_version)||sel_version==="all"));
     } else {
         beforeall = false
         var filteredMods = jsonData.filter(function (mod) {
-        console.log(`tag:${mod.tag} ct:${checkedTypes}`)
-        if(!mod.tag.includes(sel_version)) return false
+        //console.log(`tag:${mod.tag} ct:${checkedTypes}`)
+        if(!mod.tag.includes(sel_version)&&sel_version!=="all") return false
         let truefalse = false
         mod.tag.forEach((elm)=>{
             if(isIncludes(checkedTypes,elm)) truefalse=true
@@ -207,5 +209,5 @@ function searchMods() {
 processJSON(jsonData);
 
 select_version.onchange = event => { 
-            filterMods()
+            filterMods("ver")
         }
