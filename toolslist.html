@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html lang="ja-JP">
-<head>
-    <title>SBmod_box - ツール一覧</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel=”canonical” href=”https://dmmo-com-jp.github.io/SBmod_box/index.html”>
-    <link rel="icon" href="images/favicon.ico" />
-    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" type="image/png" href="images/apple-touch-icon.png">
-    <meta name="description" content="ビル経営ゲームのmodをまとめています。ダウンロードしてスプライトをアップロードすれば簡単に導入出来ます！">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-    <header id="navbar"></header>
-    <div>
-        <label for="search-input">検索:</label>
-        <input type="text" id="search-input" oninput="searchMods()" placeholder="mod名を入力">
-    </div>
-    <div>
-        <p>絞り込み:
-            <label>
-                <input type="checkbox" value="all" onchange="filterMods(this.checked)" checked><span>すべて</span>
-            </label>
-            <label>
-                <input type="checkbox" value="premise" onchange="filterMods(this.checked)"><span>前提mod</span>
-            </label>
-            <label>
-                <input type="checkbox" value="SBAPI" onchange="filterMods(this.checked)"><span>SBAPI式</span>
-            </label>
-            <label>
-                <input type="checkbox" value="SBMOD" onchange="filterMods(this.checked)"><span>SBMOD式</span>
-            </label>
-        </p>
-    </div>
-    <div class="modlist"></div>
-    <script src="https://utteranc.es/client.js"
-        repo="dmmo-com-jp/SBmod_box"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-    </script>
-
+    <head>
+        <title>SBmod_box - ツール一覧</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel=”canonical” href=”https://dmmo-com-jp.github.io/SBmod_box/index.html”>
+        <link rel="icon" href="images/favicon.ico" />
+        <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" type="image/png" href="images/apple-touch-icon.png">
+        <meta name="description" content="ビル経営ゲームのmodをまとめています。ダウンロードしてスプライトをアップロードすれば簡単に導入出来ます！">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <header id="navbar"></header>
+        <main class="flex flex-col justify-start items-center gap-5 max-w-[800px] w-full min-h-screen h-full m-auto my-10">
+            <div>
+                <label for="search-input">検索:</label>
+                <input type="text" id="search-input" oninput="searchMods()" placeholder="mod名を入力">
+            </div>
+            <div>
+                <p>絞り込み:
+                    <label>
+                        <input type="checkbox" value="all" onchange="filterMods(this.checked)" checked><span>すべて</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="premise" onchange="filterMods(this.checked)"><span>前提mod</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="SBAPI" onchange="filterMods(this.checked)"><span>SBAPI式</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="SBMOD" onchange="filterMods(this.checked)"><span>SBMOD式</span>
+                    </label>
+                </p>
+            </div>
+            <div class="modlist"></div>
+            <script src="https://utteranc.es/client.js"
+                repo="dmmo-com-jp/SBmod_box"
+                issue-term="pathname"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </main>
+    </body>
     <script src="script.js"></script>
     <script src="scripts/navbar.js"></script>
-</body>
 </html>
