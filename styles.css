@@ -192,7 +192,5 @@ nav a:hover {
 }
 /*pngを文字サイズにねじ込む*/
 img[id="SBAPIreturn"]{
-    max-width: 30%;
-    height: auto;
     display: inline-block;
 }
