@@ -1,0 +1,2 @@
+User-agent: * 
+Sitemap: https://dmmo-com-jp.github.io/SBmod_box/sitemap.xml
