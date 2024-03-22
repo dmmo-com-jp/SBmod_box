@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+    <head>
+        <title>SBmod_box - mod一覧</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel=”canonical” href=”https://dmmo-com-jp.github.io/SBmod_box/index.html”>
+        <link rel="icon" href="images/favicon.ico" />
+        <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" type="image/png" href="images/apple-touch-icon.png">
+        <meta name="description" content="ビル経営ゲームのmodをまとめています。ダウンロードしてスプライトをアップロードすれば簡単に導入出来ます！">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <header id="navbar"></header>
+        <div class="headline">
+            <h3 id="title" design="centering">初めに</h3>
+            <p id="content">SBAPIとは、ビル経営ゲームでMODを作成する時に楽を出来る前提modである。</p>
+            <p id="content">このページでは開発者向けにSBAPIの使い方を解説していく。</p>
+        </div>
+        <div class="headline" design="centering">
+            <h3 id="title">導入方法</h3>
+            <p id="content">SBAPIを<a href="modlist.html">mod一覧</a>等からダウンロードしてください。</p>
+            <p id="content"><code>SBAPI</code><code>SBAPIplus</code>が大体のSBAPI式modの動作環境で必要なものです。</p>
+            <p id="content">"SBAPI clientside"はSBAPI式modのコードを書いていくspriteです。</p>
+        </div>
+        <div class="headline">
+            <h3 id="title">SBAPIの基本的な使い方</h3>
+            <p id="content">↓のように使用する。これを使う事で建築リストを階段だけにするとかも出来るぞ！</p>
+            <img src="images/SBAPIrequest.webp">
+            <p id="content">返り値は[list]modAPIの1番目に返ってきます。</p>
+        </div>
+        <div class="headline">
+            <h3 id="title">メソッドとは</h3>
+            <p id="content">SBAPIには<code>data</code><code>get</code><code>post</code>の3つメソッドが有る。</p>
+            <p id="content">基本的には<code>get</code>と<code>post</code>を使って、変数とかめんどいときに<code>data</code>に押し付ける感じ。</p>
+        </div>
+        <div class="headline">
+            <h3 id="title">メソッドの紹介</h3>
+            <p id="content"><code>data</code>:ビル経に初期搭載されてるcache機能と独立したcache機能が使えます。</p>
+            <p id="content"><code>get</code>:ビル経の各プロパティを取得します。</p>
+            <p id="content"><code>post</code>:ビル経の各プロパティの変更や、猫の召喚等を行います。</p>
+        </div>
+        <div class="headline">
+            <h3 id="title">メソッド - data</h3>
+            <p id="content">cache機能がメイン。SBAPIplusでは文字列操作が追加される</p>
+                <div class="headline" design="mid">
+                    <h3 id="title">cache</h3>
+                    <p id="content"><code>key,value</code>の形でcacheする</p>
+                    <p id="content"><code>[SBAPI request (data) (cache)(key)(value)]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">get</h3>
+                    <p id="content"><code>key</code>からcacheを取得する</p>
+                    <p id="content"><code>[SBAPI request (data) (get)(key)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">delete</h3>
+                    <p id="content"><code>key</code>のcacheを削除する</p>
+                    <p id="content"><code>[SBAPI request (data) (delete)(key)()]</code></p>
+                </div>
+        </div>
+        <div class="headline">
+            <h3 id="title">メソッド - get</h3>
+            <p id="content"><img src="images/SBAPI return.png" id="SBAPIreturn">に値が返ってくる</p>
+                <div class="headline" design="mid">
+                    <h3 id="title">money</h3>
+                    <p id="content">所持金を取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (money)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">happiness</h3>
+                    <p id="content">幸福度を取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (happiness)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">diamond</h3>
+                    <p id="content">ダイヤモンド取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (diamond)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">level</h3>
+                    <p id="content">レベルを取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (level)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">xp</h3>
+                    <p id="content">xpを取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (xp)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">X coordinate</h3>
+                    <p id="content">x座標を取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (X coordinate)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">Y coordinate</h3>
+                    <p id="content">y座標を取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (Y coordinate)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">coordinate</h3>
+                    <p id="content">座標を取得する(x,y)</p>
+                    <p id="content"><code>[SBAPI request (get) (coordinate)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">day</h3>
+                    <p id="content">日数を取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (day)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">time</h3>
+                    <p id="content">時刻を取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (time)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">hour</h3>
+                    <p id="content">現在の時間を取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (hour)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">min</h3>
+                    <p id="content">現在の分を取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (min)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">weather</h3>
+                    <p id="content">天気を取得する(0:晴れ 1:雨 2:大雨)</p>
+                    <p id="content"><code>[SBAPI request (get) (weather)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">background</h3>
+                    <p id="content">雲を取得する(0:晴れ 1:曇り)</p>
+                    <p id="content"><code>[SBAPI request (get) (background)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">Location</h3>
+                    <p id="content">地域を取得する(0:平原 1:雪山 2:砂漠)</p>
+                    <p id="content"><code>[SBAPI request (get) (Location)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">cat</h3>
+                    <p id="content">スポーンしてる猫の数を取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (cat)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">electric</h3>
+                    <p id="content">使用可能な電力を取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (electric)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">water</h3>
+                    <p id="content">使用可能な水量を取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (water)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">electric (arg2:amount_used)</h3>
+                    <p id="content">使用中の電力を取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (electric)(amount_used)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">water (arg2:amount_used)</h3>
+                    <p id="content">使用中の水量を取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (water)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">menu</h3>
+                    <p id="content">現在の画面を取得する(0:ビル 1:メニュー 2:タブレット)</p>
+                    <p id="content"><code>[SBAPI request (get) (menu)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">mode</h3>
+                    <p id="content">ゲーム内のモードを取得(1:編集 2:猫)</p>
+                    <p id="content"><code>[SBAPI request (get) (mode)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">room-id</h3>
+                    <p id="content">リスト上の部屋の位置を座標から求める</p>
+                    <p id="content"><code>[SBAPI request (get) (room-id)(x座標)(y座標)]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">setgame (arg2:room-id)</h3>
+                    <p id="content">部屋の名前から建築リストなどで使われるidを取得する</p>
+                    <p id="content"><code>[SBAPI request (get) (setgame)(room-id)(部屋の名前)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">setgame (arg2:creative)</h3>
+                    <p id="content">creativeモードならtrueと返す</p>
+                    <p id="content"><code>[SBAPI request (get) (setgame)(creative)()()]</code></p>
+                </div>
+        </div>
+        <div class="headline">
+            <h3 id="title">メソッド - post</h3>
+            <p id="content">ゲームに干渉する系の操作がメイン。SBAPIplusでは株操作等が追加される</p>
+                <div class="headline" design="mid">
+                    <h3 id="title">money</h3>
+                    <p id="content">所持金を変更する</p>
+                    <p id="content"><code>[SBAPI request (post) (money)(値)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">happiness</h3>
+                    <p id="content">幸福度を変更する</p>
+                    <p id="content"><code>[SBAPI request (post) (happiness)(値)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">diamond</h3>
+                    <p id="content">ダイヤモンドを変更する</p>
+                    <p id="content"><code>[SBAPI request (post) (diamond)(値)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">level</h3>
+                    <p id="content">レベルを変更する</p>
+                    <p id="content"><code>[SBAPI request (post) (level)(値)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">xp</h3>
+                    <p id="content">xpを変更する</p>
+                    <p id="content"><code>[SBAPI request (post) (xp)(値)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">X coordinate</h3>
+                    <p id="content">カメラのX座標を変更する</p>
+                    <p id="content"><code>[SBAPI request (post) (X coordinate)(値)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">Y coordinate</h3>
+                    <p id="content">カメラのY座標を変更する</p>
+                    <p id="content"><code>[SBAPI request (post) (Y coordinate)(値)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">coordinate</h3>
+                    <p id="content">カメラの座標を変更する</p>
+                    <p id="content"><code>[SBAPI request (post) (X coordinate)(X座標)(Y座標)]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">day (arg2:add)</h3>
+                    <p id="content">日付をar3の値分進める</p>
+                    <p id="content"><code>[SBAPI request (post) (day)(add)(値)]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">day (arg2:set)</h3>
+                    <p id="content">日付をar3の値に設定する</p>
+                    <p id="content"><code>[SBAPI request (post) (day)(set)(値)]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">day (arg2:delete)</h3>
+                    <p id="content">日付をar3の値分戻す</p>
+                    <p id="content"><code>[SBAPI request (post) (day)(delete)(値)]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">toast</h3>
+                    <p id="content">通知を送る</p>
+                    <p id="content"><code>[SBAPI request (post) (toast)(通知のid)(音)]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">make cat</h3>
+                    <p id="content">猫を召喚する</p>
+                    <p id="content"><code>[SBAPI request (post) (make cat)(数)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">del cat</h3>
+                    <p id="content">すべての猫を削除する</p>
+                    <p id="content"><code>[SBAPI request (post) (del cat)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">Location</h3>
+                    <p id="content">地域を変更する</p>
+                    <p id="content"><code>plain:草原</code> <code>snowy mountains:雪山</code> <code>desert:砂漠</code></p>
+                    <p id="content"><code>[SBAPI request (post) (Location)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">open</h3>
+                    <p id="content">別画面に移動する</p>
+                    <p id="content"><code>[SBAPI request (post) (open)(値)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">open (arg2:tablet)</h3>
+                    <p id="content">タブレット画面に移動する</p>
+                    <p id="content"><code>[SBAPI request (post) (open)(tablet)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">open (arg2:pause)</h3>
+                    <p id="content">メニュー画面に移動する</p>
+                    <p id="content"><code>[SBAPI request (post) (open)(pause)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">open (arg2:ADS)</h3>
+                    <p id="content">広告画面に移動する</p>
+                    <p id="content"><code>[SBAPI request (post) (open)(ADS)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">move</h3>
+                    <p id="content">タブレット画面の移動する</p>
+                    <p id="content"><code>[SBAPI request (post) (move)(tab)(page)]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">mode</h3>
+                    <p id="content">ゲーム内のモードを変更</p>
+                    <p id="content"><code>[SBAPI request (post) (mode)(値)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">mode (arg2:cat)</h3>
+                    <p id="content">ゲーム内のモードを猫モードに変更</p>
+                    <p id="content"><code>[SBAPI request (post) (mode)(cat)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">mode (arg2:build)</h3>
+                    <p id="content">ゲーム内のモードを建築モードに変更</p>
+                    <p id="content"><code>[SBAPI request (post) (mode)(build)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">electric</h3>
+                    <p id="content">電力を固定する</p>
+                    <p id="content"><code>[SBAPI request (post) (electric)(値)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">electric (arg2:amount_used)</h3>
+                    <p id="content">使用費電力を固定する</p>
+                    <p id="content"><code>[SBAPI request (post) (electric)(amount_used)(値)]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">water</h3>
+                    <p id="content">水力を固定する</p>
+                    <p id="content"><code>[SBAPI request (post) (water)(値)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">water (arg2:amount_used)</h3>
+                    <p id="content">使用費水力を固定する</p>
+                    <p id="content"><code>[SBAPI request (post) (water)(amount_used)(値)]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">scroll</h3>
+                    <p id="content">スクロールする</p>
+                    <p id="content"><code>[SBAPI request (post) (scroll)(スクロールさせる場所)(値)]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">scroll (arg2:chat)</h3>
+                    <p id="content">チャットをスクロールする</p>
+                    <p id="content"><code>[SBAPI request (post) (scroll)(chat)(値)]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">scroll (arg2:buildlist)</h3>
+                    <p id="content">建築リストをスクロールする</p>
+                    <p id="content"><code>[SBAPI request (post) (scroll)(buildlist)(値)]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">buildlist</h3>
+                    <p id="content">建築リストの変更</p>
+                    <p id="content"><code>[SBAPI request (post) (buildlist)()()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">buildlist (arg2:seting)</h3>
+                    <p id="content">建築リストを設定する</p>
+                    <p id="content"><code>[SBAPI request (post) (buildlist)(seting)(値)]</code></p>
+                    <p id="content">最初の方に話した階段だけにする使用例はこれ↓</p>
+                    <p id="content"><img src="images/階段だけにする使用例.png"></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">mouse (arg2:down)</h3>
+                    <p id="content">マウスを押してない事にする</p>
+                    <p id="content"><code>[SBAPI request (post) (mouse)(up)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">mouse (arg2:up)</h3>
+                    <p id="content">マウスを押してない事にする</p>
+                    <p id="content"><code>[SBAPI request (post) (mouse)(up)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">profit_ratio</h3>
+                    <p id="content">収益率を変更する</p>
+                    <p id="content"><code>[SBAPI request (post) (profit_ratio)(値)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">weather</h3>
+                    <p id="content">天候を変更する</p>
+                    <p id="content"><code>[SBAPI request (post) (weather)(値)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">weather (arg2:sunny)</h3>
+                    <p id="content">天候を晴れに変更する</p>
+                    <p id="content"><code>[SBAPI request (post) (weather)(値)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">weather (arg2:rain)</h3>
+                    <p id="content">天候を雨に変更する</p>
+                    <p id="content"><code>[SBAPI request (post) (weather)(rain)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">weather (arg2:heavy rain)</h3>
+                    <p id="content">天候を大雨に変更する</p>
+                    <p id="content"><code>[SBAPI request (post) (weather)(heavy rain)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">dialog</h3>
+                    <p id="content">ダイアログを表示する</p>
+                    <p id="content">押したボタンの返り値が存在する</p>
+                    <p id="content"><code>[SBAPI request (post) (dialog)(ダイアログのid)(表示するボタン)]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">build</h3>
+                    <p id="content">getで取得できるroom-idで部屋を置き換える</p>
+                    <p id="content"><code>[SBAPI request (post) (build)(room-id)()]</code></p>
+                </div>
+                <div class="headline" design="mid">
+                    <h3 id="title">EarlyMod</h3>
+                    <p id="content">初期搭載されているmodの有効化をする</p>
+                    <p id="content"><code>[SBAPI request (post) (EarlyMod)(mod名)(値)]</code></p>
+                </div>
+        </div>
+        <div class="headline">
+            <h3 id="title">EarlyMod-初期搭載modについて</h3>
+            <p id="content">ちょっと作るのが怠いなぁという機能をSBAPIに丸投げ出来る機能です。</p>
+            <div class="headline" design="mid">
+                <h3 id="title">維持費無効化</h3>
+                <p id="content">維持費を無効化する。副作用として時間概念が消える</p>
+                <p id="content"><code>[SBAPI request (post) (EarlyMod)(keepcost)(true)]</code></p>
+            </div>
+        </div>
+
+            <script src="https://utteranc.es/client.js"
+                repo="dmmo-com-jp/SBmod_box"
+                issue-term="pathname"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+            </script>
+    </body>
+    <script src="scripts/navbar.js"></script>
+</html>

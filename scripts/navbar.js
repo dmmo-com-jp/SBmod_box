@@ -5,7 +5,7 @@ document.getElementById('navbar').innerHTML=(`
             <li><a id="nav" href="index.html" class="rounded-md p-2">ホーム</a></li>
             <li><a id="nav" href="modlist.html" class="rounded-md p-2">modを見る</a></li>
             <li><a id="nav" href="toolslist.html" class="rounded-md p-2">ツールを見る</a></li>
-            <li><a id="nav" href="services.html" class="rounded-md p-2">SBAPIの使い方</a></li>
+            <li><a id="nav" href="SBAPI.html" class="rounded-md p-2">SBAPIの使い方</a></li>
             <li><a id="nav" href="contact.html" class="rounded-md p-2">SBMODの使い方</a></li>
         </ul>
     </nav>

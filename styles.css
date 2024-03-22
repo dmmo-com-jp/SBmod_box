@@ -3,21 +3,39 @@ body {
 }
 /*見出し*/
 div.headline{
-  width: 600px;
+    width: 600px;
     padding: 0px 20px 20px 20px;
     background-color: #f1f1f1;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
     margin:  0 auto;
+    margin-top: 20px;
 }
 h3#title {
   font-size: 22px;
-  margin-bottom: 10px;
+  margin-top: 0px;
   color: #000; 
+  font-weight: bold;
 }
 #content{
   margin-bottom: 10px;
 }
+[design*="centering"]{
+    text-align: center;
+}
+div.headline[design*="mid"]{
+    width: 500px;
+    background-color: #fafafa;
+}
+/*コードタグとか*/
+code {
+    display: inline-block;
+    padding: 0.1em 0.25em; /* 文字周りの余白 */
+    color: #444; /* 文字色 */
+    background-color: #e7edf3; /* 背景色 */
+    border-radius: 3px; /* 角丸 */
+    border: solid 1px #d6dde4; /* 枠線 */
+  }
 /*mod一覧*/
 .modlist {
     display: flex;
@@ -171,4 +189,10 @@ nav a {
 nav a:hover {
     background-color: #ddd;
     color: black;
+}
+/*pngを文字サイズにねじ込む*/
+img[id="SBAPIreturn"]{
+    max-width: 30%;
+    height: auto;
+    display: inline-block;
 }
