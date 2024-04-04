@@ -11,6 +11,12 @@ var jsonData = [
         tag: ["sevecode","ver7"],
         description: "ver5のセーブコードをver7のセーブコードに変換します"
     },
+    {
+        name: "v7建築リストeditor",
+        url: "995172632",
+        tag: ["debug","v7"],
+        description: "指定した項目の低い順で建築リストのデータを生成します"
+    }
     
     // 他のmodのデータを追加
 ];
@@ -21,7 +27,7 @@ function custom_tag(tagName,modtag){
             modtag += `<p class="modtag blue">セーブコード変換</p>`;
             break;
         case 'creative':
-            modtag += `<p class="modtag purple">クリエイティブ</p>`;
+            modtag += `<p class="modtag purple">creative</p>`;
             break;
         case 'debug':
             modtag += `<p class="modtag purple">デバッグ</p>`;
