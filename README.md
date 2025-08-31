@@ -12,3 +12,6 @@ scripts/modlist.js内のjson書き換えて、modsフォルダー内にmodのフ
 [Fun117さん](https://github.com/Fun117)
 
 ・CSS訂正等
+
+## ライセンス
+2025年9月1日以降はMITライセンスが適応されます。
